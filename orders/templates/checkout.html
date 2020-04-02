@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Pizza Home Page
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h5> Username: {{ user.username }}</h5>
+        <h5> Customer ID: {{ user.id }}</h5>        
+        <h5> Order ID: {{ order_id }}</h5>
+    </div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Pizza Home Page
+{% endblock %}
+
+{% block content %}
+    <legend class="border-bottom mb-4 text-center">
+        <div>
+            Your orders
+        </div>
+    </legend>
+
+    <table class="table text-center">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Customer ID</th>
+                <th scope="col">Order ID</th>
+                <th scope="col">Order Status</th>
+                <th scope="col">Bill Amount</th>
+                <th scope="col">Checkout Date and Time</th>
+            </tr>
+        </thead>
+
+        {% for i in orders %}
+        <tbody>
+            <tr>
+                <td>{{ i.cust_id_id }}</td>
+                <td>{{ i.id }}</td>
+                <td>{{ i.order_status }}</td>
+                <td>{{ i.bill_amount }}</td>
+                <td>{{ i.checkout_time }}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+{% endblock %}

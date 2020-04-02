@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Pizza Home Page
+{% endblock %}
+
+{% block content %}
+    <legend class="border-bottom mb-4 text-center">
+        <div>
+            Order # {{ order_id }}
+        </div>
+        <div>        
+            <button type="submit">
+            <a href="/customer/{{ user.id }}/checkout/{{ order_id }}">Confirm checkout</a>
+            </button>
+
+            <button type="submit">
+            <a href="/customer/{{ user.id }}/add/{{ order_id }}">Want to add more items?</a>            
+            </button>
+        </div>
+    </legend>
+
+    <h4 class="alert alert-warning text-center">Your cart</h4>    
+
+    <table class="table text-center">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Item Category</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Size</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total Per Item</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for i in items %}
+            <tr>
+                <td>{{ i.category }}</td>
+                <td>{{ i.food_name }}</td>
+                <td>{{ i.food_size }}</td>
+                <td>{{ i.food_price }}</td>
+                <td>{{ i.quantity }}</td>
+                <td>{{ i.total_per_item }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h4 class="alert alert-warning text-center">Total bill: {{ grand_total }}</h4>    
+
+{% endblock %}

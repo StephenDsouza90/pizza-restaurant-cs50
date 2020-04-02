@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Pizza Home Page
+{% endblock %}
+
+{% block content %}
+    <legend class="border-bottom mb-4 text-center">
+        <div>
+            Place an order now!
+        </div>
+        <div>
+            <button type="submit">
+                <a href="/customer/{{ user.id }}/add/{{ order_id.id }}">Add items to cart</a>
+            </button>
+        </div>
+    </legend>
+
+    <div>
+        <h5> Username: {{ user.username }}</h5>
+        <h5> Customer ID: {{ user.id }}</h5>        
+        <h5> Order ID: {{ order_id.id }}</h5>
+    </div>
+{% endblock %}

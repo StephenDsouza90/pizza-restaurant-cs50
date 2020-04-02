@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Pizza Home Page
+{% endblock %}
+
+{% block content %}
+    <legend class="border-bottom mb-4 text-center">Have a look at our amazing menu</legend>
+
+    <h4 class="alert alert-warning text-center">Regular Pizza</h4>
+    <table class='table-small mx-auto text-center' style="width:50%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Small</th>
+                <th>Large</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in regular_pizza %}
+            <tr> 
+                <td>{{row.name}}</td>
+                <td>{{row.small}}</td>
+                <td>{{row.large}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h4 class="alert alert-warning text-center">Sicilian Pizza</h4>
+    <table class='table-small mx-auto text-center' style="width:50%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Small</th>
+                <th>Large</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in sicilian_pizza %}
+            <tr> 
+                <td>{{row.name}}</td>
+                <td>{{row.small}}</td>
+                <td>{{row.large}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h4 class="alert alert-warning text-center">Toppings</h4>
+    <table class='table-small mx-auto text-center' style="width:50%">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in toppings %}
+            <tr> 
+                <td>{{row.name}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h4 class="alert alert-warning text-center">This Month's Special</h4>
+    <h6 class="text-center">Bacon Pickle Pizza: Mozzarella cheese with pickles and bacon</h6>
+ 
+    <h4 class="alert alert-warning text-center">Subs</h4>
+    <table class='table-small mx-auto text-center' style="width:50%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Small</th>
+                <th>Large</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in subs %}
+            <tr> 
+                <td>{{row.name}}</td>
+                <td>{{row.small}}</td>
+                <td>{{row.large}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h4 class="alert alert-warning text-center">Pasta</h4>
+    <table class='table-small mx-auto text-center' style="width:50%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in pastas %}
+            <tr> 
+                <td>{{row.name}}</td>
+                <td>{{row.price}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h4 class="alert alert-warning text-center">Salads</h4>
+    <table class='table-small mx-auto text-center' style="width:50%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in salads %}
+            <tr> 
+                <td>{{row.name}}</td>
+                <td>{{row.price}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h4 class="alert alert-warning text-center">Dinner Platter</h4>
+    <table class='table-small mx-auto text-center' style="width:50%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Small</th>
+                <th>Large</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in dinner_platter %}
+            <tr> 
+                <td>{{row.name}}</td>
+                <td>{{row.small}}</td>
+                <td>{{row.large}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

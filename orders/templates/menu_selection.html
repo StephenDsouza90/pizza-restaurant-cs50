@@ -1,0 +1,249 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Pizza Home Page
+{% endblock %}
+
+{% block content %}
+    <legend class="border-bottom mb-4 text-center">
+        <div>
+            Order # {{ order_id }}
+        </div>        
+        <div>        
+            <button type="submit">
+            <a href="/customer/{{ user.id }}/cart/{{ order_id }}">Go to cart</a>
+            </button>
+        </div>
+    </legend>
+
+
+    <legend class="border-bottom mb-4 text-center">Select items!</legend>
+
+    <h4 class="alert alert-warning text-center">Regular Pizza (Small)</h4>    
+    <div class="row">
+        {% for item in regular_pizza %}
+        <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/customer/{{ user.id }}/add/{{ order_id }}" method="POST">
+                        {% csrf_token %}
+                        <h6 class="card-title">Category: <input name="category" value="Regular pizza" readonly></h6>
+                        <h6 class="card-title"> Size: <input name="food_size" value="small" readonly></h6> 
+                        <h6 class="card-title">Name: <input name="food_name" value="{{ item.name }}" readonly></h6>
+                        <h6 class="card-title">Price: <input name="food_price" value="{{ item.small }}" readonly></h6> 
+                        <h6 class="card-title">Quantity: <input type="number" name="quantity" placeholder="Quantity"></h6>
+                        <button type="submit" class="btn btn-primary">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h4 class="alert alert-warning text-center">Regular Pizza (Large)</h4>
+    <div class="row">
+        {% for item in regular_pizza %}
+        <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/customer/{{ user.id }}/add/{{ order_id }}" method="POST">
+                        {% csrf_token %}
+                        <h6 class="card-title">Category: <input name="category" value="Regular pizza" readonly></h6>
+                        <h6 class="card-title">Size: <input name="food_size" value="large" readonly></h6> 
+                        <h6 class="card-title">Name: <input name="food_name" value="{{ item.name }}" readonly></h6> 
+                        <h6 class="card-title">Price: <input name="food_price" value="{{ item.large }}" readonly></h6> 
+                        <h6 class="card-title">Quantity: <input type="number" name="quantity" placeholder="Quantity"></h6>
+                        <button type="submit" class="btn btn-primary">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h4 class="alert alert-warning text-center">Toppings</h4>
+    <div class="row">
+        {% for item in toppings %}
+        <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/customer/{{ user.id }}/add/{{ order_id }}" method="POST">
+                        {% csrf_token %}
+                        <h6 class="card-title">Category: <input name="category" value="Toppings" readonly></h6>
+                        <h6 class="card-title">Name: <input name="food_name" value="{{ item.name }}" readonly></h6>
+                        <h6 class="card-title">Quantity: <input type="number" name="quantity" value="1" readonly></h6>
+                        <button type="submit" class="btn btn-primary">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h4 class="alert alert-warning text-center">Sicilian Pizza (Small)</h4>    
+    <div class="row">
+        {% for item in sicilian_pizza %}
+        <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/customer/{{ user.id }}/add/{{ order_id }}" method="POST">
+                        {% csrf_token %}
+                        <h6 class="card-title">Category: <input name="category" value="Sicilian pizza" readonly></h6>
+                        <h6 class="card-title"> Size: <input name="food_size" value="small" readonly></h6> 
+                        <h6 class="card-title">Name: <input name="food_name" value="{{ item.name }}" readonly></h6>
+                        <h6 class="card-title">Price: <input name="food_price" value="{{ item.small }}" readonly></h6> 
+                        <h6 class="card-title">Quantity: <input type="number" name="quantity" placeholder="Quantity"></h6>
+                        <button type="submit" class="btn btn-primary">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h4 class="alert alert-warning text-center">Sicilian Pizza (Large)</h4>
+    <div class="row">
+        {% for item in sicilian_pizza %}
+        <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/customer/{{ user.id }}/add/{{ order_id }}" method="POST">
+                        {% csrf_token %}
+                        <h6 class="card-title">Category: <input name="category" value="Sicilian pizza" readonly></h6>
+                        <h6 class="card-title">Size: <input name="food_size" value="large" readonly></h6> 
+                        <h6 class="card-title">Name: <input name="food_name" value="{{ item.name }}" readonly></h6> 
+                        <h6 class="card-title">Price: <input name="food_price" value="{{ item.large }}" readonly></h6> 
+                        <h6 class="card-title">Quantity: <input type="number" name="quantity" placeholder="Quantity"></h6>
+                        <button type="submit" class="btn btn-primary">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h4 class="alert alert-warning text-center">Subs (Small)</h4>
+    <div class="row">
+        {% for item in subs %}
+        <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/customer/{{ user.id }}/add/{{ order_id }}" method="POST">
+                        {% csrf_token %}
+                        <h6 class="card-title">Category: <input name="category" value="Subs" readonly></h6>
+                        <h6 class="card-title">Size: <input name="food_size" value="small" readonly></h6> 
+                        <h6 class="card-title">Name: <input name="food_name" value="{{ item.name }}" readonly></h6> 
+                        <h6 class="card-title">Price: <input name="food_price" value="{{ item.small }}" readonly></h6> 
+                        <h6 class="card-title">Quantity: <input type="number" name="quantity" placeholder="Quantity"></h6>
+                        <button type="submit" class="btn btn-primary">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h4 class="alert alert-warning text-center">Subs (Large)</h4>
+    <div class="row">
+        {% for item in subs %}
+        <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/customer/{{ user.id }}/add/{{ order_id }}" method="POST">
+                        {% csrf_token %}
+                        <h6 class="card-title">Category: <input name="category" value="Subs" readonly></h6>
+                        <h6 class="card-title">Size: <input name="food_size" value="large" readonly></h6> 
+                        <h6 class="card-title">Name: <input name="food_name" value="{{ item.name }}" readonly></h6> 
+                        <h6 class="card-title">Price: <input name="food_price" value="{{ item.large }}" readonly></h6> 
+                        <h6 class="card-title">Quantity: <input type="number" name="quantity" placeholder="Quantity"></h6>
+                        <button type="submit" class="btn btn-primary">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h4 class="alert alert-warning text-center">Pasta</h4>
+    <div class="row">
+        {% for item in pastas %}
+        <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/customer/{{ user.id }}/add/{{ order_id }}" method="POST">
+                        {% csrf_token %}
+                        <h6 class="card-title">Category: <input name="category" value="Pasta" readonly></h6>
+                        <h6 class="card-title">Name: <input name="food_name" value="{{ item.name }}" readonly></h6> 
+                        <h6 class="card-title">Price: <input name="food_price" value="{{ item.price }}" readonly></h6> 
+                        <h6 class="card-title">Quantity: <input type="number" name="quantity" placeholder="Quantity"></h6>
+                        <button type="submit" class="btn btn-primary">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h4 class="alert alert-warning text-center">Salads</h4>
+    <div class="row">
+        {% for item in salads %}
+        <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/customer/{{ user.id }}/add/{{ order_id }}" method="POST">
+                        {% csrf_token %}
+                        <h6 class="card-title">Category: <input name="category" value="Salads" readonly></h6>
+                        <h6 class="card-title">Name: <input name="food_name" value="{{ item.name }}" readonly></h6> 
+                        <h6 class="card-title">Price: <input name="food_price" value="{{ item.price }}" readonly></h6> 
+                        <h6 class="card-title">Quantity: <input type="number" name="quantity" placeholder="Quantity"></h6>
+                        <button type="submit" class="btn btn-primary">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h4 class="alert alert-warning text-center">Dinner Platters (Small)</h4>
+    <div class="row">
+        {% for item in dinner_platter %}
+        <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/customer/{{ user.id }}/add/{{ order_id }}" method="POST">
+                        {% csrf_token %}
+                        <h6 class="card-title">Category: <input name="category" value="Dinner Platters" readonly></h6>
+                        <h6 class="card-title">Size: <input name="food_size" value="small" readonly></h6> 
+                        <h6 class="card-title">Name: <input name="food_name" value="{{ item.name }}" readonly></h6> 
+                        <h6 class="card-title">Price: <input name="food_price" value="{{ item.small }}" readonly></h6> 
+                        <h6 class="card-title">Quantity: <input type="number" name="quantity" placeholder="Quantity"></h6>
+                        <button type="submit" class="btn btn-primary">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <h4 class="alert alert-warning text-center">Dinner Platters (Large)</h4>
+    <div class="row">
+        {% for item in dinner_platter %}
+        <div class="col-lg-4 d-flex align-items-stretch">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/customer/{{ user.id }}/add/{{ order_id }}" method="POST">
+                        {% csrf_token %}
+                        <h6 class="card-title">Category: <input name="category" value="Dinner Platters" readonly></h6>
+                        <h6 class="card-title">Size: <input name="food_size" value="large" readonly></h6> 
+                        <h6 class="card-title">Name: <input name="food_name" value="{{ item.name }}" readonly></h6> 
+                        <h6 class="card-title">Price: <input name="food_price" value="{{ item.large }}" readonly></h6> 
+                        <h6 class="card-title">Quantity: <input type="number" name="quantity" placeholder="Quantity"></h6>
+                        <button type="submit" class="btn btn-primary">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
